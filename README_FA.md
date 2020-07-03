@@ -90,6 +90,6 @@ TahrimGozar.getInstance().setCustomProxy(new ProxyInfo(PROXY_HOST,PROXY_PORT));
 
 # مشارکت
 
-کمک های مالی شما می تواند امیدوار کننده باشد. <br/>
-خوشحال میشوم اگر از توسعه این کتابخانه پشتیبانی کنید. <br/>
+کمک های مالی شما می تواند امیدوار کننده باشد <br/>
+خوشحال میشوم اگر از توسعه این کتابخانه پشتیبانی کنید <br/>
 https://www.payping.ir/@rostamzadeh
