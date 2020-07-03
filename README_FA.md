@@ -59,13 +59,13 @@ dependencies {
 
 مرحله 2: راه اندازی پروکسی
 
-- پراکسی پیش فرض: اگر می خواهید از پروکسی پیش فرض استفاده کنید ، کد زیر را اضافه کنید:
+- پراکسی پیش فرض: اگر می خواهید از پروکسی پیش فرض استفاده کنید ، کد زیر را اضافه کنید
 ```java
 // If you want use in web view , pass true ,otherwise pass false
 tahrimGozar.setupAutomaticProxy(true);
 ```
 
-- پروکسی سفارشی: اگر می خواهید از پروکسی سفارشی استفاده کنید ، کد زیر را اضافه کنید:
+- پروکسی سفارشی: اگر می خواهید از پروکسی سفارشی استفاده کنید ، کد زیر را اضافه کنید
 ```java
 TahrimGozar.getInstance().setCustomProxy(new ProxyInfo(PROXY_HOST,PROXY_PORT));
 ```
