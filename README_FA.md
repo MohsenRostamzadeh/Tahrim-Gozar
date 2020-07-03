@@ -12,7 +12,7 @@
 - .دیگری استفاده کنید http یا هر کتابخانه Volley ، OkHttp ، Ion آگنیستیک کتابخانه. می توانید از هر کتابخانه ای که می خواهید  
 
 # راه اندازی کتابخانه
-مرحله 1: مخزن JitPack را به پرونده gradle build خود اضافه کنید
+خود اضافه کنید gradle build را به پرونده JitPack مرحله 1: مخزن    
 ```gradle
 repositories {
     maven {
@@ -45,7 +45,7 @@ dependencies {
 
 ```
 # مثال استفاده
-مرحله 1: ابتدا باید کتابخانه را با ** Application context ** راه اندازی کنید.
+راه اندازی کنید ** Application context ** مرحله 1: ابتدا باید کتابخانه را با
 ```java
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +57,7 @@ dependencies {
         tahrimGozar.init(getApplicationContext());
 ```
 
-مرحله 2: پروکسی راه اندازی
+مرحله 2: راه اندازی پروکسی
 
 - پراکسی پیش فرض: اگر می خواهید از پروکسی پیش فرض استفاده کنید ، کد زیر را اضافه کنید:
 ```java
@@ -70,8 +70,8 @@ tahrimGozar.setupAutomaticProxy(true);
 TahrimGozar.getInstance().setCustomProxy(new ProxyInfo(PROXY_HOST,PROXY_PORT));
 ```
 
-- استفاده در webView: <br/>
-XML عنصر:
+- :webView استفاده در <br/>
+:XML عنصر
 ```xml
 <ir.M_Rostamzadeh.Tahrim_Gozar.GozarWebView
             android:id="@+id/webView"
@@ -79,7 +79,7 @@ XML عنصر:
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 ```
-کد جاوا:
+:کد جاوا
 ```java
  GozarWebView gozarWebView =findViewById(R.id.webView);
  //If you want to override all webView urls and get over Internet sanctions completely , pass true , other wise pass false
