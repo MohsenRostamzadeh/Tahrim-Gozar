@@ -70,3 +70,27 @@ tahrimGozar.setupAutomaticProxy(true);
 ```java
 TahrimGozar.getInstance().setCustomProxy(new ProxyInfo(PROXY_HOST,PROXY_PORT));
 ```
+
+- use in webView:
+XML Element:
+```xml
+<ir.M_Rostamzadeh.Tahrim_Gozar.GozarWebView
+            android:id="@+id/webView"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+```
+java Code:
+```java
+ GozarWebView gozarWebView =findViewById(R.id.webView);
+ //If you want to override all webView urls and get over Internet sanctions completely , pass true , other wise pass false
+ //It is better to pass true in web applications
+ GozarClient gozarClient=new GozarClient(false);
+ gozarWebView.setWebViewClient(gozarClient);
+```
+
+#Contributing
+
+Your financial aid can be hopeful
+Support the development of this library
+https://www.payping.ir/@rostamzadeh
