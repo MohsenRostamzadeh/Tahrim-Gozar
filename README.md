@@ -71,7 +71,7 @@ tahrimGozar.setupAutomaticProxy(true);
 TahrimGozar.getInstance().setCustomProxy(new ProxyInfo(PROXY_HOST,PROXY_PORT));
 ```
 
-- use in webView:
+- use in webView:<br/>
 XML Element:
 ```xml
 <ir.M_Rostamzadeh.Tahrim_Gozar.GozarWebView
@@ -91,6 +91,6 @@ java Code:
 
 #Contributing
 
-Your financial aid can be hopeful
-Support the development of this library
+Your financial aid can be hopeful <br/>
+Support the development of this library <br/>
 https://www.payping.ir/@rostamzadeh
