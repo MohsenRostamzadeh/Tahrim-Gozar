@@ -29,7 +29,7 @@ dependencies {
 
 ```
 
-# Pro guard rules
+# ProGuard rules
 If you use pro guard on your project , add the pro guard rules:
 ```pro guard
 
