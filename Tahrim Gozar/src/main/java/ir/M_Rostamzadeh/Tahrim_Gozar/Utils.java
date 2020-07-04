@@ -10,8 +10,6 @@ import android.os.Build;
 import android.util.ArrayMap;
 import android.util.Log;
 
-import com.vijayrawatsan.easyproxy.ProxyInfo;
-
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.lang.reflect.Constructor;

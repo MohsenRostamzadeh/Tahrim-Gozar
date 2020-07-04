@@ -4,8 +4,6 @@ import android.annotation.SuppressLint;
 import android.os.Handler;
 import android.util.Log;
 
-import com.vijayrawatsan.easyproxy.ProxyInfo;
-
 import static ir.M_Rostamzadeh.Tahrim_Gozar.Constants.ERROR_DENIED_PERMISSION_CODE;
 import static ir.M_Rostamzadeh.Tahrim_Gozar.Constants.PROXY_OK;
 

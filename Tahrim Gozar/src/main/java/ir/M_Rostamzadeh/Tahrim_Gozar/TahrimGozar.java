@@ -8,7 +8,6 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 
 import com.vijayrawatsan.easyproxy.EasyProxy;
-import com.vijayrawatsan.easyproxy.ProxyInfo;
 
 import static ir.M_Rostamzadeh.Tahrim_Gozar.Constants.useInWebView;
 
@@ -62,7 +61,7 @@ public class TahrimGozar {
     public void setCustomProxy(ProxyInfo proxyInfo) {
         if (!useInWebView&&proxyInfo.getPort()!=0) {
             try {
-                EasyProxy.init(proxyInfo,Constants.isDebugMode);
+                EasyProxy.init(new com.vijayrawatsan.easyproxy.ProxyInfo(proxyInfo.getHost(),proxyInfo.port),Constants.isDebugMode);
             }catch (Exception e){
                 Utils.getInstance().showLog(e.toString(), Log.ERROR);
             }
