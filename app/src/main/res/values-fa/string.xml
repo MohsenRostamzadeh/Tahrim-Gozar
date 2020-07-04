@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">تحریم گذر</string>
+    <string name="btn1_text">گوگل</string>
+    <string name="btn2_text">سایت تحریم شده</string>
+    <string name="btn3_text">سایت باز</string>
+</resources>

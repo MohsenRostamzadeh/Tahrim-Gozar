@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:textColor="@android:color/black"
+            android:text="@string/btn1_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn1"
+            tools:ignore="ButtonStyle" />
+
+        <Button
+            android:textColor="@android:color/black"
+            android:text="@string/btn2_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn2"
+            tools:ignore="ButtonStyle" />
+
+        <Button
+            android:textColor="@android:color/black"
+            android:text="@string/btn3_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn3"
+            tools:ignore="ButtonStyle" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ir.M_Rostamzadeh.Tahrim_Gozar.GozarWebView
+            android:id="@+id/webView"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <ProgressBar
+            android:visibility="invisible"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/progress_bar"
+            style="@style/Widget.AppCompat.ProgressBar"/>
+
+    </RelativeLayout>
+</LinearLayout>
