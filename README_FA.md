@@ -1,3 +1,4 @@
+[![](https://jitpack.io/v/MohsenRostamzadeh/Tahrim-Gozar.svg)](https://jitpack.io/#MohsenRostamzadeh/Tahrim-Gozar)
 # تحریم گذر
 کتابخانه ساده برای استفاده آسان پروکسی در اندروید و غلبه بر تحریم های نرم افزاری و اینترنتی
 
@@ -23,7 +24,7 @@ repositories {
 مرحله 2: افزودن وابستگی
 ```gradle
 dependencies {
-  
+  implementation 'com.github.MohsenRostamzadeh:Tahrim-Gozar:v1.0'
 }
 
 ```
