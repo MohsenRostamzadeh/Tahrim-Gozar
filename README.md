@@ -1,3 +1,4 @@
+[![](https://jitpack.io/v/MohsenRostamzadeh/Tahrim-Gozar.svg)](https://jitpack.io/#MohsenRostamzadeh/Tahrim-Gozar)
 # Tahrim Gozar
 Simple library for easy use proxy in android and Overcoming software sanctions
 
@@ -24,7 +25,7 @@ repositories {
 step 2: Add the dependency in the form
 ```gradle
 dependencies {
-  
+  implementation 'com.github.MohsenRostamzadeh:Tahrim-Gozar:v1.0'
 }
 
 ```
