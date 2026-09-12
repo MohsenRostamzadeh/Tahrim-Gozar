@@ -1,0 +1,14 @@
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+plugins {
+    id 'org.gradle.toolchains.foojay-resolver-convention' version '1.0.0'
+}
+include ':Tahrim_Gozar'
+project(':Tahrim_Gozar').projectDir = file('./Tahrim Gozar')
+include ':app'
+rootProject.name = "My Application"

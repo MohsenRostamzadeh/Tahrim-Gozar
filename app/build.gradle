@@ -1,0 +1,42 @@
+plugins {
+    alias libs.plugins.android.application
+}
+
+android {
+    namespace 'ir.rostamzadeh.tahrim_gozar_example'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId "ir.rostamzadeh.tahrim_gozar_example"
+        minSdk 24
+        targetSdk 35
+        versionCode 2
+        versionName "2.0"
+        ndk {
+            abiFilters "arm64-v8a", "armeabi-v7a"
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation files('../Tahrim Gozar/libs/libv2ray.aar')
+    implementation libs.androidx.appcompat
+    implementation libs.material
+    implementation project(path: ':Tahrim_Gozar')
+    testImplementation libs.junit
+    androidTestImplementation libs.androidx.junit
+    androidTestImplementation libs.androidx.espresso.core
+}

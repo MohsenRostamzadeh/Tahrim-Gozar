@@ -1,0 +1,872 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bgDark"
+    android:fillViewport="true"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <!-- =================================================================== -->
+        <!-- هدر اصلی برنامه -->
+        <!-- =================================================================== -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="12dp">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_launcher_foreground"
+                android:contentDescription="Logo"
+                android:layout_marginEnd="10dp"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="تحریم‌گذر (نسخه نمایشی)"
+                    android:textColor="@color/textWhite"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ویترین تست ۰ تا ۱۰۰ متدهای کتابخانه تحریم‌گذر"
+                    android:textColor="@color/textMuted"
+                    android:textSize="11sp"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/badge_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="قطع ⚪"
+                android:textColor="@color/textMuted"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:background="@drawable/bg_speed_gauge"/>
+        </LinearLayout>
+
+        <!-- =================================================================== -->
+        <!-- کارت ۱: پایش زنده سرعت و ترافیک (Speedometer & Traffic Meter) -->
+        <!-- =================================================================== -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_card"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="📊 پایش زنده ترافیک و سرعت لحظه‌ای"
+                    android:textColor="@color/textWhite"
+                    android:textSize="13sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/txt_ping"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="پینگ: -- ms"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="11sp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+            <!-- دو گیج سرعت دانلود و آپلود -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp">
+
+                <!-- گیج دانلود -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:background="@drawable/bg_speed_gauge"
+                    android:padding="8dp"
+                    android:layout_marginEnd="4dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="⬇️ سرعت دانلود"
+                        android:textColor="@color/textMuted"
+                        android:textSize="10sp"/>
+
+                    <TextView
+                        android:id="@+id/txt_speed_rx"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0 B/s"
+                        android:textColor="@color/accentCyan"
+                        android:textSize="15sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/txt_total_rx"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="کل دریافت: 0 B"
+                        android:textColor="@color/textMuted"
+                        android:textSize="9sp"/>
+                </LinearLayout>
+
+                <!-- گیج آپلود -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:background="@drawable/bg_speed_gauge"
+                    android:padding="8dp"
+                    android:layout_marginStart="4dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="⬆️ سرعت آپلود"
+                        android:textColor="@color/textMuted"
+                        android:textSize="10sp"/>
+
+                    <TextView
+                        android:id="@+id/txt_speed_tx"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0 B/s"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="15sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/txt_total_tx"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="کل ارسال: 0 B"
+                        android:textColor="@color/textMuted"
+                        android:textSize="9sp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- اطلاعات نود فعال و دکمه دیالوگ آماده وضعیت -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/txt_active_node"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="کانفیگ فعال: انتخاب نشده"
+                    android:textColor="@color/textMuted"
+                    android:textSize="10sp"/>
+
+                <Button
+                    android:id="@+id/btn_show_ui_dialog"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:text="🎨 دیالوگ وضعیت آماده"
+                    android:textSize="10sp"
+                    android:textColor="@color/textWhite"
+                    android:backgroundTint="@color/accentPurple"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- =================================================================== -->
+        <!-- کارت ۲: ورودی کانفیگ، پری‌ست‌ها و کنترل تونل -->
+        <!-- =================================================================== -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_card"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="⚙️ پیکربندی یونیورسال و پری‌ست‌های سریع"
+                android:textColor="@color/textWhite"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="6dp"/>
+
+            <!-- فیلد ورودی متن کانفیگ -->
+            <EditText
+                android:id="@+id/edit_config"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="نام پری‌ست (shecan, 403)، لینک پروتکل (vless, vmess, socks5) یا لینک سابسکرپشن"
+                android:textColor="@color/textWhite"
+                android:textColorHint="@color/textMuted"
+                android:background="@drawable/bg_input"
+                android:padding="10dp"
+                android:textSize="12sp"
+                android:maxLines="3"
+                android:inputType="textMultiLine"/>
+
+            <!-- پری‌ست‌های سریع DNS -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="پری‌ست‌های DNS ضدتحریم:"
+                android:textColor="@color/textMuted"
+                android:textSize="10sp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="4dp"/>
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none"
+                android:layout_marginBottom="6dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btn_preset_shecan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="34dp"
+                        android:text="شکن (Shecan)"
+                        android:textSize="10sp"
+                        android:textColor="@color/textWhite"
+                        android:backgroundTint="@color/cardBorder"
+                        android:layout_marginEnd="4dp"/>
+
+                    <Button
+                        android:id="@+id/btn_preset_electro"
+                        android:layout_width="wrap_content"
+                        android:layout_height="34dp"
+                        android:text="الکترو (Electro)"
+                        android:textSize="10sp"
+                        android:textColor="@color/textWhite"
+                        android:backgroundTint="@color/cardBorder"
+                        android:layout_marginEnd="4dp"/>
+
+                    <Button
+                        android:id="@+id/btn_preset_radar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="34dp"
+                        android:text="رادار (Radar)"
+                        android:textSize="10sp"
+                        android:textColor="@color/textWhite"
+                        android:backgroundTint="@color/cardBorder"
+                        android:layout_marginEnd="4dp"/>
+
+                    <Button
+                        android:id="@+id/btn_preset_403"
+                        android:layout_width="wrap_content"
+                        android:layout_height="34dp"
+                        android:text="۴۰۳ (Online)"
+                        android:textSize="10sp"
+                        android:textColor="@color/textWhite"
+                        android:backgroundTint="@color/cardBorder"
+                        android:layout_marginEnd="4dp"/>
+
+                    <Button
+                        android:id="@+id/btn_preset_begzar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="34dp"
+                        android:text="بگذر (Begzar)"
+                        android:textSize="10sp"
+                        android:textColor="@color/textWhite"
+                        android:backgroundTint="@color/cardBorder"
+                        android:layout_marginEnd="4dp"/>
+
+                    <Button
+                        android:id="@+id/btn_preset_doh"
+                        android:layout_width="wrap_content"
+                        android:layout_height="34dp"
+                        android:text="Cloudflare DoH"
+                        android:textSize="10sp"
+                        android:textColor="@color/textWhite"
+                        android:backgroundTint="@color/cardBorder"
+                        android:layout_marginEnd="4dp"/>
+
+                    <Button
+                        android:id="@+id/btn_preset_google"
+                        android:layout_width="wrap_content"
+                        android:layout_height="34dp"
+                        android:text="Google DNS"
+                        android:textSize="10sp"
+                        android:textColor="@color/textWhite"
+                        android:backgroundTint="@color/cardBorder"/>
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <!-- پری‌ست‌های پروتکل‌ها و سابسکرپشن -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="نمونه پروتکل‌های پیشرفته و سابسکرپشن:"
+                android:textColor="@color/textMuted"
+                android:textSize="10sp"
+                android:layout_marginBottom="4dp"/>
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none"
+                android:layout_marginBottom="8dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btn_sample_sub"
+                        android:layout_width="wrap_content"
+                        android:layout_height="34dp"
+                        android:text="🔄 سابسکرپشن چندکانفیگ"
+                        android:textSize="10sp"
+                        android:textColor="@color/textWhite"
+                        android:backgroundTint="@color/colorPrimary"
+                        android:layout_marginEnd="4dp"/>
+
+                    <Button
+                        android:id="@+id/btn_sample_vless"
+                        android:layout_width="wrap_content"
+                        android:layout_height="34dp"
+                        android:text="VLESS Reality"
+                        android:textSize="10sp"
+                        android:textColor="@color/textWhite"
+                        android:backgroundTint="@color/cardBorder"
+                        android:layout_marginEnd="4dp"/>
+
+                    <Button
+                        android:id="@+id/btn_sample_socks"
+                        android:layout_width="wrap_content"
+                        android:layout_height="34dp"
+                        android:text="SOCKS5 پروکسی"
+                        android:textSize="10sp"
+                        android:textColor="@color/textWhite"
+                        android:backgroundTint="@color/cardBorder"/>
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <!-- دکمه‌های عملیات اصلی: اتصال، پینگ، قطع -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_connect"
+                    android:layout_width="0dp"
+                    android:layout_height="42dp"
+                    android:layout_weight="1"
+                    android:text="⚡ اتصال تونل"
+                    android:textColor="@color/textWhite"
+                    android:backgroundTint="@color/statusGreen"
+                    android:textSize="12sp"
+                    android:layout_marginEnd="4dp"/>
+
+                <Button
+                    android:id="@+id/btn_ping"
+                    android:layout_width="0dp"
+                    android:layout_height="42dp"
+                    android:layout_weight="1"
+                    android:text="📶 تست پینگ"
+                    android:textColor="@color/textWhite"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:textSize="12sp"
+                    android:layout_marginEnd="4dp"/>
+
+                <Button
+                    android:id="@+id/btn_disconnect"
+                    android:layout_width="0dp"
+                    android:layout_height="42dp"
+                    android:layout_weight="1"
+                    android:text="🛑 قطع تونل"
+                    android:textColor="@color/textWhite"
+                    android:backgroundTint="@color/statusRed"
+                    android:textSize="12sp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- =================================================================== -->
+        <!-- کارت ۳: تفکیک هوشمند ترافیک بین‌المللی (Split Tunneling) -->
+        <!-- =================================================================== -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_card"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🌐 تفکیک هوشمند ترافیک بین‌المللی (Split Tunneling)"
+                android:textColor="@color/textWhite"
+                android:textSize="13sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="سایت‌های داخلی مستقیم و بدون پروکسی باز می‌شوند و سایت‌های تحریمی از تونل عبور می‌کنند."
+                android:textColor="@color/textMuted"
+                android:textSize="10sp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="8dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="6dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="فعال‌سازی تفکیک ترافیک (Split Tunneling)"
+                    android:textColor="@color/textWhite"
+                    android:textSize="11sp"/>
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/switch_split_tunneling"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="6dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="عبور مستقیم دامنه‌های ملی (Bypass Domestic)"
+                    android:textColor="@color/textWhite"
+                    android:textSize="11sp"/>
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/switch_bypass_domestic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"/>
+            </LinearLayout>
+
+            <!-- فیلد پسوندهای دامنه ملی -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="پسوندهای ملی:"
+                    android:textColor="@color/textMuted"
+                    android:textSize="10sp"
+                    android:layout_marginEnd="6dp"/>
+
+                <EditText
+                    android:id="@+id/edit_domestic_tlds"
+                    android:layout_width="0dp"
+                    android:layout_height="36dp"
+                    android:layout_weight="1"
+                    android:text=".ir"
+                    android:hint=".ir, .ru, .cn"
+                    android:textColor="@color/textWhite"
+                    android:background="@drawable/bg_input"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    android:textSize="11sp"
+                    android:inputType="text"/>
+
+                <Button
+                    android:id="@+id/btn_apply_tlds"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:text="اعمال"
+                    android:textSize="10sp"
+                    android:textColor="@color/textWhite"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:layout_marginStart="4dp"/>
+            </LinearLayout>
+
+            <!-- دکمه‌های تست زنده تفکیک ترافیک -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_test_domestic_site"
+                    android:layout_width="0dp"
+                    android:layout_height="36dp"
+                    android:layout_weight="1"
+                    android:text="تست سایت داخلی (ورزش ۳)"
+                    android:textSize="10sp"
+                    android:textColor="@color/textWhite"
+                    android:backgroundTint="@color/cardBorder"
+                    android:layout_marginEnd="4dp"/>
+
+                <Button
+                    android:id="@+id/btn_test_sanctioned_site"
+                    android:layout_width="0dp"
+                    android:layout_height="36dp"
+                    android:layout_weight="1"
+                    android:text="تست سایت تحریمی (جمینای)"
+                    android:textSize="10sp"
+                    android:textColor="@color/textWhite"
+                    android:backgroundTint="@color/cardBorder"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- =================================================================== -->
+        <!-- کارت ۴: مسابقه همزمان سرورهای دی‌ان‌اس (DNS Race) -->
+        <!-- =================================================================== -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_card"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="⚡ حل همزمان و مسابقه‌ای دی‌ان‌اس (Happy Eyeballs)"
+                android:textColor="@color/textWhite"
+                android:textSize="13sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ارسال همزمان به تمام سرورها و انتخاب اولین پاسخ زیر ۳۰ میلی‌ثانیه."
+                android:textColor="@color/textMuted"
+                android:textSize="10sp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="8dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="فعال‌سازی مسابقه همزمان (DNS Race)"
+                    android:textColor="@color/textWhite"
+                    android:textSize="11sp"/>
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/switch_dns_race"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"/>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_dns_benchmark"
+                android:layout_width="match_parent"
+                android:layout_height="38dp"
+                android:text="⏱️ اجرای بنچمارک مقایسه‌ای سرعت DNS"
+                android:textSize="11sp"
+                android:textColor="@color/textWhite"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:layout_marginBottom="6dp"/>
+
+            <TextView
+                android:id="@+id/txt_dns_benchmark_result"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="نتیجه بنچمارک: آماده تست"
+                android:textColor="@color/accentCyan"
+                android:textSize="10sp"
+                android:background="@drawable/bg_speed_gauge"
+                android:padding="8dp"/>
+        </LinearLayout>
+
+        <!-- =================================================================== -->
+        <!-- کارت ۵: پایش دوره‌ای ۲۰ ثانیه‌ای و Failover سابسکرپشن -->
+        <!-- =================================================================== -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_card"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🔄 سابسکرپشن و پایش پایداری اتصال (Auto-Failover)"
+                android:textColor="@color/textWhite"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="4dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="4dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="پایش دوره‌ای ۲۰ ثانیه‌ای (Health Monitor)"
+                    android:textColor="@color/textWhite"
+                    android:textSize="11sp"/>
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/switch_health_monitor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="6dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="سوییچ خودکار در افت پینگ (Auto-Failover)"
+                    android:textColor="@color/textWhite"
+                    android:textSize="11sp"/>
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/switch_auto_failover"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txt_health_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="⏱️ وضعیت پایش سلامت: آماده"
+                android:textColor="@color/textMuted"
+                android:textSize="10sp"/>
+        </LinearLayout>
+
+        <!-- =================================================================== -->
+        <!-- کارت ۶: مرورگر زنده وب‌ویو درون‌برنامه‌ای -->
+        <!-- =================================================================== -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_card"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🌐 مرورگر وب‌ویو زنده درون‌برنامه‌ای (GozarWebView)"
+                android:textColor="@color/textWhite"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="6dp"/>
+
+            <!-- نوار آدرس -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="6dp">
+
+                <EditText
+                    android:id="@+id/edit_url"
+                    android:layout_width="0dp"
+                    android:layout_height="38dp"
+                    android:layout_weight="1"
+                    android:text="https://gemini.google.com"
+                    android:textColor="@color/textWhite"
+                    android:background="@drawable/bg_input"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    android:textSize="11sp"
+                    android:inputType="textUri"
+                    android:layout_marginEnd="4dp"/>
+
+                <Button
+                    android:id="@+id/btn_go"
+                    android:layout_width="wrap_content"
+                    android:layout_height="38dp"
+                    android:text="باز کردن 🚀"
+                    android:textColor="@color/textWhite"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:textSize="11sp"/>
+            </LinearLayout>
+
+            <!-- دکمه‌های سایت‌های نمونه -->
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none"
+                android:layout_marginBottom="6dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btn_site_gemini"
+                        android:layout_width="wrap_content"
+                        android:layout_height="32dp"
+                        android:text="جمینای (Gemini)"
+                        android:textSize="9sp"
+                        android:textColor="@color/textWhite"
+                        android:backgroundTint="@color/cardBorder"
+                        android:layout_marginEnd="4dp"/>
+
+                    <Button
+                        android:id="@+id/btn_site_android"
+                        android:layout_width="wrap_content"
+                        android:layout_height="32dp"
+                        android:text="Android Dev"
+                        android:textSize="9sp"
+                        android:textColor="@color/textWhite"
+                        android:backgroundTint="@color/cardBorder"
+                        android:layout_marginEnd="4dp"/>
+
+                    <Button
+                        android:id="@+id/btn_site_cloudflare"
+                        android:layout_width="wrap_content"
+                        android:layout_height="32dp"
+                        android:text="Cloudflare Trace"
+                        android:textSize="9sp"
+                        android:textColor="@color/textWhite"
+                        android:backgroundTint="@color/cardBorder"
+                        android:layout_marginEnd="4dp"/>
+
+                    <Button
+                        android:id="@+id/btn_site_varzesh3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="32dp"
+                        android:text="ورزش ۳ (داخلی .ir)"
+                        android:textSize="9sp"
+                        android:textColor="@color/textWhite"
+                        android:backgroundTint="@color/cardBorder"/>
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <!-- وب‌ویو درون کانتینر -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="340dp"
+                android:background="#FFFFFF">
+
+                <ir.M_Rostamzadeh.Tahrim_Gozar.GozarWebView
+                    android:id="@+id/webView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+                <ProgressBar
+                    android:id="@+id/progress_bar"
+                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="4dp"
+                    android:layout_alignParentTop="true"
+                    android:visibility="gone"/>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <!-- =================================================================== -->
+        <!-- کارت ۷: راهنمای برنامه‌نویسان و نحوه استفاده در کد -->
+        <!-- =================================================================== -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_card"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="💻 نحوه فراخوانی در پروژه شما (Java Code)"
+                android:textColor="@color/textWhite"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="4dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TahrimGozar.with(context)\n  .subscription(&quot;https://...&quot;)\n  .splitTunneling(true)\n  .bypassDomesticTraffic(true)\n  .dnsRace(true)\n  .trafficStats(true, listener)\n  .start(callback);"
+                android:textColor="@color/accentCyan"
+                android:textSize="10sp"
+                android:typeface="monospace"
+                android:background="@drawable/bg_input"
+                android:padding="8dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

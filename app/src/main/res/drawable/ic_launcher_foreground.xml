@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Outer Shield Shadow -->
+    <path
+        android:fillColor="#33000000"
+        android:pathData="M54,25 C69,25 81,29 85,35 C85,59 71,77 54,89 C37,77 23,59 23,35 C27,29 39,25 54,25 Z" />
+
+    <!-- Main Shield with Cyber Blue Gradient -->
+    <path
+        android:pathData="M54,22 C69,22 81,26 85,32 C85,56 71,74 54,86 C37,74 23,56 23,32 C27,26 39,22 54,22 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:startX="23"
+                android:startY="22"
+                android:endX="85"
+                android:endY="86"
+                android:type="linear">
+                <item android:offset="0.0" android:color="#38BDF8" />
+                <item android:offset="0.45" android:color="#2563EB" />
+                <item android:offset="1.0" android:color="#1D4ED8" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- Shield Inner Bevel Border -->
+    <path
+        android:pathData="M54,25 C66,25 77,29 81,34 C81,54 68,70 54,81 C40,70 27,54 27,34 C31,29 42,25 54,25 Z"
+        android:strokeWidth="1.2"
+        android:strokeColor="#50FFFFFF"
+        android:fillColor="#00000000" />
+
+    <!-- Lightning Gateway / Anti-Sanction Bolt -->
+    <path
+        android:pathData="M57,32 L40,54 L53,54 L47,74 L68,48 L55,48 Z"
+        android:fillColor="#FFFFFF" />
+
+    <!-- Lightning Accent Edge -->
+    <path
+        android:pathData="M57,32 L40,54 L53,54 Z"
+        android:fillColor="#E0F2FE" />
+</vector>
