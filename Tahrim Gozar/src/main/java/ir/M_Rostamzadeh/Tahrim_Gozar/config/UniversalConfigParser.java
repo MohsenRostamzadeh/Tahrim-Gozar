@@ -999,7 +999,8 @@ public class UniversalConfigParser {
         // 1. Single node JSON (Sing-box, Clash, or Xray Outbound): {"type": "...", "server": "..."}
         // ۱. قالب تک نود JSON (Sing-box یا Clash یا Xray Outbound): {"type": "...", "server": "..."}
         if (simpleMap.containsKey("server") && (simpleMap.containsKey("type") || simpleMap.containsKey("port") || simpleMap.containsKey("server_port") || simpleMap.containsKey("uuid"))) {
-            String sType = simpleMap.getOrDefault("type", "vmess").toLowerCase(Locale.ROOT);
+            String sTypeVal = simpleMap.get("type");
+            String sType = (sTypeVal != null ? sTypeVal : "vmess").toLowerCase(Locale.ROOT);
             host = simpleMap.get("server");
 
             if (simpleMap.containsKey("server_port")) {

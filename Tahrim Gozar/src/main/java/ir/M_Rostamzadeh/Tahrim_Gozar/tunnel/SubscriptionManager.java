@@ -267,7 +267,7 @@ public class SubscriptionManager {
         }
 
         // Sort by ascending latency / مرتب‌سازی بر اساس کمترین پینگ
-        results.sort((o1, o2) -> {
+        Collections.sort(results, (o1, o2) -> {
             if (o1.getPingMs() < 0 && o2.getPingMs() < 0) return 0;
             if (o1.getPingMs() < 0) return 1;
             if (o2.getPingMs() < 0) return -1;
@@ -340,7 +340,7 @@ public class SubscriptionManager {
             } catch (InterruptedException ignored) {
             }
 
-            results.sort((o1, o2) -> {
+            Collections.sort(results, (o1, o2) -> {
                 if (o1.getPingMs() < 0 && o2.getPingMs() < 0) return 0;
                 if (o1.getPingMs() < 0) return 1;
                 if (o2.getPingMs() < 0) return -1;
